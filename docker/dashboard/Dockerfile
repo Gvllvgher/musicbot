@@ -15,4 +15,4 @@ RUN apt-get update -y && \
       libjpeg-dev \
       libgif-dev
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "build-and-start"]
