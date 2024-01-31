@@ -150,7 +150,7 @@ module.exports = {
 
 	defaultPlayerValues: {
 		twentyFourSeven: false,
-		autoLeave: false,
+		autoLeave: true,
 		autoPause: true,
 		autoQueue: false,
 		history: false,
