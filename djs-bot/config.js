@@ -73,20 +73,11 @@ module.exports = {
 	nodes: [
 		{
 			identifier: "DockerNode", // log id string
-			host: "docker.lavalink",
-			port: 2333,
-			password: "youshallnotpass",
-			retryAmount: 15, // for lavalink connection attempts
-			retryDelay: 6000, // Delay between reconnect attempts if connection is lost.
-			secure: false, // if lavalink is running SSL
-		},
-		{
-			identifier: "LocalNode", // log id string
-			host: "localhost",
-			port: 2333,
-			password: "youshallnotpass",
-			retryAmount: 15, // for lavalink connection attempts
-			retryDelay: 6000, // Delay between reconnect attempts if connection is lost.
+			host: process.env.LAVALINK_HOST || "docker.lavalink",
+			port: parseInt(process.env.LAVALINK_PORT) || 2333,
+			password: process.env.LAVALINK_PASS || "youshallnotpass",
+			retryAmount: 150, // for lavalink connection attempts
+			retryDelay: 10000, // Delay between reconnect attempts if connection is lost.
 			secure: false, // if lavalink is running SSL
 		},
 	],
@@ -145,15 +136,6 @@ module.exports = {
 		 }[]}
 		 */
 		activities: [
-			{
-				name: "{someVariable} servers",
-				type: "WATCHING",
-				data: (client) => {
-					return {
-						someVariable: client.guilds.cache.size,
-					}
-				}
-			},
 			{
 				name: "Music",
 				type: "LISTENING",
