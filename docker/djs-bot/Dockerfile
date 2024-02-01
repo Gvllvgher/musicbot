@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:20 as builder
 
 LABEL org.opencontainers.image.source=https://github.com/Gvllvgher/musicbot
 
@@ -15,6 +15,4 @@ RUN apt-get update -y && \
       libjpeg-dev \
       libgif-dev
 
-RUN npm run update
-
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "db-start"]
