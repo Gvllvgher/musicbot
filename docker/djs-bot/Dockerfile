@@ -1,4 +1,4 @@
-FROM node:20 as builder
+FROM node:20
 
 LABEL org.opencontainers.image.source=https://github.com/Gvllvgher/musicbot
 
