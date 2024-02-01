@@ -6,13 +6,4 @@ WORKDIR /usr/src/app
 
 COPY dashboard/ ./
 
-RUN apt-get update -y && \
-    apt-get install -y \
-      build-essential \
-      libpango1.0-dev \
-      libcairo2-dev \
-      librsvg2-dev \
-      libjpeg-dev \
-      libgif-dev
-
 CMD ["npm", "run", "build-and-start"]
